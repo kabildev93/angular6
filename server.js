@@ -7,11 +7,9 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended : false}))
 
 const posts = require('./server/routes/posts');
-
-
 app.use(express.static(path.join(__dirname,'src')));
 app.use('/posts', posts);
-
+app.use("/node_modules", express.static('node_modules'));
 
 app.get('*',(req,res)=>{
 
